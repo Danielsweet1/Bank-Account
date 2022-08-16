@@ -3,6 +3,13 @@ document.getElementById('withdraw-btn').addEventListener('click', function(){
     const newWithdrawAmountString = withdrawField.value;
     const newWithdrawAmount = parseFloat(newWithdrawAmountString);
 
+    withdrawField.value = '';
+
+    if(isNaN(newWithdrawAmount)){
+        alert('Please provide a Number');
+        return;
+    }
+
     const withdrawElementTotal = document.getElementById('withdraw-total');
     const privousWithdrawTotalString = withdrawElementTotal.innerText;
     const privousWithdrawTotal = parseFloat(privousWithdrawTotalString);
@@ -20,5 +27,5 @@ document.getElementById('withdraw-btn').addEventListener('click', function(){
 
 
 
-     withdrawField.value = '';
+    
 })
