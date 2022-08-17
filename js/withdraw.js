@@ -10,12 +10,7 @@ document.getElementById('withdraw-btn').addEventListener('click', function(){
         return;
     }
 
-    const withdrawElementTotal = document.getElementById('withdraw-total');
-    const privousWithdrawTotalString = withdrawElementTotal.innerText;
-    const privousWithdrawTotal = parseFloat(privousWithdrawTotalString);
-
-    const currentWithdrawtotal = newWithdrawAmount + privousWithdrawTotal;
-     withdrawElementTotal.innerText = currentWithdrawtotal;
+ 
 
 
      const balanceTotalElement = document.getElementById('balance-total');
@@ -23,7 +18,17 @@ document.getElementById('withdraw-btn').addEventListener('click', function(){
      const balanceTotal = parseFloat(balanceTotalString);
 
      const currentBalanceTotal = balanceTotal - newWithdrawAmount;
+     if(newWithdrawAmount > currentBalanceTotal){
+        alert('Do Not Have Enough Balance');
+        return;
+    }
      balanceTotalElement.innerText = currentBalanceTotal;
+     const withdrawElementTotal = document.getElementById('withdraw-total');
+     const privousWithdrawTotalString = withdrawElementTotal.innerText;
+     const privousWithdrawTotal = parseFloat(privousWithdrawTotalString);
+ 
+     const currentWithdrawtotal = newWithdrawAmount + privousWithdrawTotal;
+      withdrawElementTotal.innerText = currentWithdrawtotal;
 
 
 
